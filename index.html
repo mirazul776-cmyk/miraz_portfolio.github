@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD. Merajul Akon - Professional Portfolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-blue: #eff6ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header / Profile Card */
+        .profile-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .profile-img-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-info .subtitle {
+            color: #93c5fd;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px 20px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+        }
+
+        .contact-item i {
+            color: #60a5fa;
+            width: 18px;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #ffffff;
+        }
+
+        /* Main Grid Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Cards & Sections */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+        }
+
+        /* Experience & Education Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid #fff;
+        }
+
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 4px 0 8px 0;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-dark);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Skills & Lists */
+        .skill-group {
+            margin-bottom: 18px;
+        }
+
+        .skill-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .skill-bar {
+            background: var(--accent-blue);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background: var(--primary);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .list-items {
+            list-style: none;
+        }
+
+        .list-items li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .list-items li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Personal Info Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .info-table td:first-child {
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 40%;
+        }
+
+        .info-table td:last-child {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* References */
+        .ref-card {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .ref-card h4 {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .ref-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 868px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .contact-grid {
+                justify-content: center;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header / Profile Section -->
+    <header class="profile-card">
+        <div class="profile-img-container">
+            <!-- Replace profile.jpg with your photo URL -->
+            <img src="profile.jpg" alt="MD. Merajul Akon" class="profile-img">
+        </div>
+        <div class="profile-info">
+            <h1>MD. Merajul Akon</h1>
+            <div class="subtitle">Educator & Academic Professional</div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>University of Dhaka, Bangladesh</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:mirazul776@gmail.com">mirazul776@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+880 1893-176289</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span>+880 1575-814040</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Grid Content -->
+    <div class="main-content">
+
+        <!-- Left Column (Experience & Education) -->
+        <main>
+            <!-- Job Experience -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Job Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Q&A Section - Academic Teacher</div>
+                        <div class="timeline-subtitle">Udvash Academic & Admission Care</div>
+                        <div class="timeline-date"><i class="fa-regular fa-calendar-days"></i> Dec 26, 2024 – Nov 25, 2025 (10 Months)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Trainee Assistant Teacher</div>
+                        <div class="timeline-subtitle">Assistant Level Program</div>
+                        <div class="timeline-date"><i class="fa-regular fa-calendar-days"></i> Nov 03, 2024 – Feb 27, 2025 (3 Months)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Academic Qualifications</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">Bachelor of Education (B.Ed)</div>
+                        <div class="timeline-subtitle">Institute of Education & Research (IER), University of Dhaka</div>
+                        <div class="timeline-date">Passing Year: 2024</div>
+                        <span class="timeline-badge">CGPA: 3.57 / 4.00</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Higher Secondary Certificate (H.S.C)</div>
+                        <div class="timeline-subtitle">Pirojpur Govt. Showrawardy College (Barisal Board)</div>
+                        <div class="timeline-date">Business Studies | Passing Year: 2020</div>
+                        <span class="timeline-badge">GPA: 4.50 / 5.00</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Secondary School Certificate (S.S.C)</div>
+                        <div class="timeline-subtitle">Pirojpur Town Secondary High School (Barisal Board)</div>
+                        <div class="timeline-date">Business Studies | Passing Year: 2018</div>
+                        <span class="timeline-badge">GPA: 4.67 / 5.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Extra-Curricular Activities -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-users-line"></i> Co-Curricular & Leadership</h2>
+                <ul class="list-items">
+                    <li><strong>Organising Secretary</strong> – Bangladesh Torun Column Writer Forum, Dhaka University Branch</li>
+                    <li><strong>Education Secretary</strong> – Dhaka University Students' Association of Pirojpur</li>
+                    <li><strong>General Member</strong> – IER YES Group, Transparency International Bangladesh (TIB)</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Right Column (Skills & Personal Details) -->
+        <aside>
+            <!-- Computer & Language Skills -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills & Expertise</h2>
+                
+                <h3 style="font-size: 0.95rem; margin-bottom: 12px; color: var(--text-muted);">Computer Skills</h3>
+                <div class="skill-group">
+                    <label>Microsoft Word</label>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <label>Microsoft Excel</label>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+
+                <h3 style="font-size: 0.95rem; margin-top: 20px; margin-bottom: 12px; color: var(--text-muted);">English Proficiency</h3>
+                <div class="skill-group">
+                    <label>Reading (Excellent)</label>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <label>Writing (Good)</label>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <label>Speaking (Good)</label>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+            </section>
+
+            <!-- Personal Details -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Details</h2>
+                <table class="info-table">
+                    <tr><td>Father's Name</td><td>MD. Akbor Ali Akon</td></tr>
+                    <tr><td>Mother's Name</td><td>Mst. Jesmin Begum</td></tr>
+                    <tr><td>Date of Birth</td><td>Dec 30, 2001</td></tr>
+                    <tr><td>Gender</td><td>Male</td></tr>
+                    <tr><td>Marital Status</td><td>Married</td></tr>
+                    <tr><td>Blood Group</td><td>B+</td></tr>
+                    <tr><td>Religion</td><td>Islam</td></tr>
+                    <tr><td>Nationality</td><td>Bangladeshi</td></tr>
+                    <tr><td>Home District</td><td>Pirojpur</td></tr>
+                    <tr><td>NID No.</td><td>8712631210</td></tr>
+                </table>
+            </section>
+
+            <!-- References -->
+            <section class="card">
+                <h2 class="section-title"><i class="fa-solid fa-quote-right"></i> References</h2>
+                
+                <div class="ref-card">
+                    <h4>Dr. Md. Abdus Salam</h4>
+                    <p>Professor, Dhaka University</p>
+                    <p><i class="fa-solid fa-phone"></i> 01711702630</p>
+                    <p><i class="fa-solid fa-envelope"></i> abdussalam@du.ac.bd</p>
+                </div>
+
+                <div class="ref-card">
+                    <h4>Dr. Mohammad Whaid</h4>
+                    <p>Assistant Professor, Dept. of Nephrology</p>
+                    <p>Bangladesh Medical University</p>
+                    <p><i class="fa-solid fa-phone"></i> +880 1766-551294</p>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+</div>
+
+</body>
+</html>
